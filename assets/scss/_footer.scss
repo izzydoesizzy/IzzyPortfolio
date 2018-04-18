@@ -1,0 +1,28 @@
+/* ---------------------------------------------------------------------------- */
+/* --- 5. FOOTER
+/* ----------------------------------------------------------------------------- */
+
+#footer {
+    font-size: 0.8rem;
+    font-weight: $font-primary-regular;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+
+    .footer-content {
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
+
+    p {
+        font-size: 0.8rem;
+        font-weight: $font-primary-regular;
+    }
+}
+
+.page-scrolling #footer {
+    position: fixed;
+    z-index: 1;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}

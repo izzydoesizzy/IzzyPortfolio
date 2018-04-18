@@ -1,0 +1,70 @@
+/* 6.16 Pagination
+----------------------------------------------------------*/
+
+.pagination {
+    @include align-items(center);
+    
+    > li {
+        margin: 0 0.2em;
+        > a {
+            border: none;
+            color: $color-global;
+            font-weight: $font-primary-medium;
+            display: inline-block;
+            @include border-radius(50%);
+            @include transition-primary;
+            display: block;
+            font-size: 0.9rem;
+
+            &:hover {
+                background-color: transparent;
+                color: $color-primary;
+            }
+        }
+
+        &:first-child, &:last-child {
+            > a {
+                top: 50%;
+                width: 2rem;
+                @include border-radius(2rem);
+                background-color: transparent;
+                padding: 0;
+                text-align: center;
+                @include border-radius(50%);
+                color: $color-muted;
+
+                > i {
+                    line-height: 26px;
+                    font-size: 0.8rem;
+                }
+
+                &:hover, &:focus {
+                    color: $color-global;
+                    background-color: transparent;
+                }
+            }
+        }
+
+        &:first-child > a {
+            &:hover {
+                @include translateX(-2px);
+            }
+        }
+
+        &:last-child > a {
+            &:hover {
+                @include translateX(2px);
+            }
+        }
+
+        &.active > a {
+            color: $color-primary;
+            background-color: transparent;
+        }
+
+        &.disabled {
+            pointer-events: none;
+            @include opacity(.5);
+        }
+    }
+}

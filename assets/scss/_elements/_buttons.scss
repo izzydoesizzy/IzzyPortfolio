@@ -1,0 +1,243 @@
+/* 6.5 Buttons
+----------------------------------------------------------*/
+
+.btn {
+    position: relative;
+    font-size: 0.85rem;
+    font-weight: $font-primary-semibold;
+    font-family: $font-primary;
+    padding: 0.9rem 1.75rem;
+    @include transition-primary;
+    cursor: pointer;
+    border-width: 2px;
+    @include border-radius(0.2em);
+    overflow: hidden;
+    @include backface-visibility(hidden);
+
+    &:hover, &:focus, &:active, &:focus:active {
+        outline: none;
+        @include box-shadow(none);
+        @include translateY(-2px);
+    }
+
+    > i {
+        display: inline-block;
+        vertical-align: middle;
+        font-size: 130%;
+        line-height: 1;
+
+        &:first-child {
+            margin-right: 0.5rem;
+        }
+
+        &.last-child {
+            margin-left: 0.5rem;
+        }
+    }
+
+    &.btn-rounded {
+        @include border-radius(30px);
+    }
+}
+
+/* Sizes */
+
+.btn-lg {
+    padding: 1.5rem 2.5rem;
+    font-size: 1rem;
+}
+
+.btn-sm {
+    padding: 0.5rem 1rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+/* Types */
+
+$k: 1;
+@for $i from 1 through length($colorVersions)/2 {
+    $type: nth($colorVersions,$k);
+    $color: nth($colorVersions,$k+1);
+
+    .btn-#{$type} {
+        border-color: transparent;
+        background-color: $color;
+        color: #fff;
+
+        &:hover, &:focus, &:active, &:focus:active {
+            border-color: transparent;
+            background-color: darken($color, 10%);
+            color: #fff;
+        }
+    }
+    $k: $k+2;
+}
+
+.btn-grey {
+    border-color: transparent;
+    background-color: $color-light;
+    color: $color-global;
+
+    &:hover, &:focus, &:active, &:focus:active {
+        border-color: transparent;
+        background-color: darken($color-light,3%);
+        color: $color-global;
+    }
+}
+
+.btn-primary-animated {
+    overflow: hidden;
+    background-image: linear-gradient(to right, $color-secondary, $color-primary, $color-secondary);
+    background-size: 300% 100%;
+    background-position: 0% center;
+    @include animation(gradientAnimation 10s ease infinite);
+    color: #fff;
+    border-color: transparent;
+
+    &:hover, &:focus, &:active, &:focus:active {
+        @include animation-play-state(paused);
+        color: #fff;
+        border-color: transparent;
+    }
+}
+
+.btn-white {
+    border-color: transparent;
+    background-color: #fff;
+    color: $color-primary;
+
+    &:hover, &:focus, &:active, &:focus:active {
+        border-color: transparent;
+        background-color: darken($color-primary, 10%);
+        color: #fff;
+    }
+}
+
+$k: 1;
+@for $i from 1 through length($socialBrands)/2 {
+    $type: nth($socialBrands,$k);
+    $color: nth($socialBrands,$k+1);
+
+    .btn-#{$type} {
+        border-color: transparent;
+        background-color: $color;
+        color: #fff;
+
+        &:hover, &:focus, &:active, &:focus:active {
+            border-color: transparent;
+            background-color: darken($color, 10%);
+            color: #fff;
+        }
+    }
+    $k: $k+2;
+}
+
+$k: 1;
+@for $i from 1 through length($colorVersions)/2 {
+    $type: nth($colorVersions,$k);
+    $color: nth($colorVersions,$k+1);
+
+    .btn-outline-#{$type} {
+        border-color: $color;
+        color: inherit;
+
+        &:hover, &:focus, &:active, &:focus:active {
+            border-color: $color;
+            background-color: $color;
+            color: #fff;
+        }
+    }
+    $k: $k+2;
+}
+
+.btn-outline-white {
+    border-color: #fff;
+    color: inherit;
+    background-color: transparent;
+
+    &:hover, &:focus, &:active, &:focus:active {
+        background-color: #fff;
+        color: $color-primary;
+    }
+}
+
+.btn-link {
+    color: inherit;
+
+    &:hover, &:focus, &:active, &:focus:active {
+        color: $color-primary;
+        @include translateY(-2px);
+        text-decoration: none;
+    }
+}
+
+/* Btn Toggle */
+.btn-toggle {
+    &[aria-expanded="false"] {
+        > span:nth-child(1) {
+            display: block;
+        }
+        > span:nth-child(2) {
+            display: none;
+        }
+    }
+    &[aria-expanded="true"] {
+        > span:nth-child(1) {
+            display: none;
+        }
+        > span:nth-child(2) {
+            display: block;
+        }
+    }
+}
+
+/* Play Button */
+.btn-play {
+    @include button-clear;
+    position: relative;
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    vertical-align: middle;
+    @include border-radius(50%);
+
+    &:before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        @include border-radius(50%);
+        background-color: #fff;
+        @include transition-primary;
+        @include box-shadow(0 0 45px 0 rgba(#000,0.1));
+        content: ' ';
+    }
+
+    &:after {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        @include translate3d(-50%,-50%,0);
+        @include filter(blur(0));
+        border-style: solid;
+        border-width: 6px 0 6px 11px;
+        border-color: transparent transparent transparent $color-global;
+        content: ' ';
+        @include transition-primary;
+    }
+
+    &:hover, &:focus, &:active, &:focus:active {
+        outline: none;
+
+        &:before {
+            @include scale(1.1);
+            @include opacity(1);
+            visibility: visible;
+        }
+        &:after {
+            border-color: transparent transparent transparent $color-primary;
+        }
+    }
+}

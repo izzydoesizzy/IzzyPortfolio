@@ -1,0 +1,64 @@
+/* 4.6 Schedule
+----------------------------------------------------------*/
+
+.schedule-container {
+    @include display-flex;
+    margin-left: -15px;
+    margin-right: -15px;
+
+    @include media('<=screen-md') {
+        @include flex-wrap(wrap);
+    }
+
+    .schedule {
+        text-align: center;
+        @include flex(1 1 auto);
+        padding: 0 15px;
+
+        @include media('<=screen-md') {
+            @include flex(1 1 50%);
+            margin-bottom: 2rem;
+        }
+
+        .schedule-header {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 3px solid $color-line;
+            @include transition-primary;
+            font-size: 1rem;
+        }
+
+        .schedule-item {
+            &:not(:last-child) {
+                margin-bottom: 1.5rem;
+                padding-bottom: 1.5rem;
+                border-bottom: 1px solid $color-line;
+            }
+
+            > span {
+                display: block;
+            }
+
+            .time {
+                font-size: 0.9rem;
+                font-weight: $font-primary-medium;
+                margin-bottom: 1rem;
+            }
+
+            .title {
+                font-weight: $font-primary-medium;
+            }
+
+            .caption {
+                @include opacity(0.5);
+                font-size: 0.9rem;
+            }
+        }
+
+        &:hover, {
+            .schedule-header {
+                border-color: $color-primary;
+            }
+        }
+    }
+}

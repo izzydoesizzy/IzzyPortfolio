@@ -1,0 +1,103 @@
+/* ---------------------------------------------------------------------------- */
+/* --- 2. BASICS
+/* ----------------------------------------------------------------------------- */
+
+.relative { position: relative; z-index: 2; }
+.dark { color: #fff; }
+.light { color: $color-global; }
+
+.fullheight { height: 100vh; }
+.min-fullheight { min-height: 100vh; }
+.h-sm { height: 40vh; }
+.h-md { height: 60vh; }
+.h-lg { height: 80vh; }
+
+@for $i from 1 through 10 {
+    .h-#{$i * 100} {
+        height: #{$i * 100}px;
+    }
+}
+
+@include media("height<=screen-height-sm") {
+    .h-sm, .h-md, .h-lg, .fullheight {
+        height: auto;
+    }
+}
+
+@include media("<=screen-sm") {
+    .h-sm, .h-md, .h-lg, .fullheight {
+        height: auto;
+    }
+}
+
+.row.with-sep {
+    > *:not(:last-child):after {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 1px;
+        background-color: $color-global;
+        content: ' ';
+
+        @include media("<=screen-sm") {
+            display: none;
+        }
+    }
+}
+
+body:not(.page-sliding) { 
+
+    .pos-v-center {
+        position: relative;
+        top: 50%;
+        @include translate3d(0,-50%,0);
+        @include transition(all 0.3s ease-out);
+
+        @include media("<=screen-sm") {
+            top: 0;
+            @include translate3d(0,0,0);
+        }
+
+        @include media("height<=screen-height-sm") {
+            top: 0;
+            @include translate3d(0,0,0);
+        }
+    }
+    
+}
+
+body.page-sliding { 
+    .pos-v-center {
+        @include translate3d(0,0,0);
+    }
+}
+
+.pos-v-bottom {
+    position: relative;
+    bottom: 4vw;
+    @include translate3d(0,-100%,0);
+    @include transition(all 0.3s ease-out);
+
+    @include media("<=screen-sm") {
+        top: 0;
+        @include translate3d(0,0,0);
+    }
+
+    @include media("height<=screen-height-sm") {
+        top: 0;
+        @include translate3d(0,0,0);
+    }
+}
+
+.border-top {
+    border-top: 1px solid $color-line;
+}
+
+.border-bottom {
+    border-bottom: 1px solid $color-line;
+}
+
+.shadow {
+    @include box-shadow(5px 5px 40px 0 rgba(#000,0.1));
+}

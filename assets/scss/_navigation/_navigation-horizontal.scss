@@ -1,0 +1,178 @@
+/* 3.1 Navigation Horizontal
+----------------------------------------------------------*/
+
+body.navigation-horizontal {
+    .section-content {
+        margin-top: $nav-horizontal-height/2;
+
+        @include media("<=screen-md") {
+            margin-top: $nav-horizontal-height-mobile/2;
+        }
+
+        @include media("<=screen-lg") {
+            margin-left: 0;
+        }
+    }
+}
+
+#navigation.navigation-horizontal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: $nav-horizontal-height;
+    width: 100vw;
+    background-color: rgba(#fff,0.7);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    @include display-flex;
+    @include align-items(center);
+
+    @include media("<=screen-md") {
+        height: $nav-horizontal-height-mobile;
+    }
+
+    .photo {
+        display: block;
+
+        img {
+            height: $nav-horizontal-height;
+
+            @include media("<=screen-md") {
+                height: $nav-horizontal-height-mobile;
+            }
+        }
+    }
+
+    .user {
+        position: relative;
+        color: inherit;
+        display: block;
+        padding: 0 30px;
+        line-height: 1;
+        text-align: right;
+        border-right: 2px solid $color-primary;
+
+        .user-name {
+            margin-bottom: 0rem;
+            font-size: 1.15rem;
+
+            @include media('<=screen-xs') {
+                display: none;
+            }
+        }
+
+        .user-caption {
+            font-weight: $font-primary-medium;
+            font-size: 0.8rem;
+            @include opacity(0.5);
+
+            @include media('<=screen-xs') {
+                display: none;
+            }
+        }
+
+        .user-initials {
+            font-size: 1.4rem;
+            display: none;
+            font-weight: $font-primary-bold;
+
+            @include media('<=screen-xs') {
+                display: block;
+            }
+        }
+    }
+
+    .nav-toggle {
+        margin: 0 25px 0 auto;
+        display: none;
+
+        span {
+            background-color: $color-global;
+        }
+
+        @include media("<=screen-md") {
+            display: block;
+        }
+    }
+
+    .nav-primary-horizontal {
+        @include flex(1 1 auto);
+        margin-right: 30px;
+
+        @include media("<=screen-md") {
+            margin-right: 0;
+        }
+    }
+
+    &.dark {
+        background-color: rgba(#000,0.7);
+        color: #fff;
+
+        .nav-toggle span {
+            background-color: #fff;
+        }
+    }
+}
+
+.nav-primary-horizontal {
+    @include justify-content(flex-end);
+
+    @include media("<=screen-md") {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        padding: 2rem 20%;
+        text-align: center;
+        @include flex-direction(column);
+        height: calc(100vh - #{$nav-horizontal-height-mobile});
+        overflow: auto;
+        @include justify-content(start);
+        background: linear-gradient(to bottom, rgba(#fff,0.7) 30%, rgba(#fff,0));
+        @include transition-primary;
+        visibility: hidden;
+        @include opacity(0);
+
+        &.show {
+            visibility: visible;
+            @include opacity(1);
+        }
+    }
+
+    li, .nav-item {
+        @include media("<=screen-md") {
+            &:not(:last-child) {
+                border-bottom: 1px solid $color-line;
+            }
+        }
+        a, .nav-link {
+            position: relative;
+            font-weight: $font-primary-medium;
+            @include link-inherit;
+            padding: 1rem;
+            display: inline-block;
+
+            &.active {
+                color: $color-primary;
+            }
+        }
+
+        &.active {
+            a, .nav-link {
+                color: $color-primary;
+            }
+        }
+    }
+}
+
+.dark .nav-primary-horizontal {
+    @include media("<=screen-md") {
+        background: linear-gradient(to bottom, rgba(#000,0.7) 30%, rgba(#000,0));
+    }
+    li, .nav-item {
+        &:not(:last-child) {
+            border-color: $color-line-light;
+        }
+    }
+}
+

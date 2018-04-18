@@ -1,0 +1,40 @@
+/* 6.13 Navs
+----------------------------------------------------------*/
+
+.nav-pills {
+    display: block;
+
+    li, .nav-item {
+        margin-bottom: 0.25rem;
+        display: inline-block;
+
+        a, .nav-link {
+            font-size: 0.9rem;
+            padding: 0.75rem 1.5rem;
+            @include border-radius(3rem);
+            border: 1px solid $color-line;
+            color: inherit;
+            font-weight: $font-primary-medium;
+
+            &:hover, &:focus {
+                color: $color-primary;
+            }
+
+            &.active {
+                background-color: $color-primary;
+                border-color: $color-primary;
+                color: #fff;
+                @include box-shadow(3px 3px 30px 0 rgba(#000,0.1));
+            }
+        }
+    }
+}
+
+.dark .nav-pills {
+    li, .nav-item {
+
+        a, .nav-link {
+            border-color: $color-line-light;
+        }
+    }
+}

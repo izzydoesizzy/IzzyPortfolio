@@ -1,0 +1,310 @@
+/* 6.15 Other
+----------------------------------------------------------*/
+
+/* Separator */
+hr {
+	margin-top: 1.5rem;
+	margin-bottom: 1.5rem;
+    border-color: $color-line;
+
+    &.hr-sm {
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    &.hr-lg {
+        margin-top: 3rem;
+        margin-bottom: 3rem;
+    }
+}
+
+.dark hr {
+    border-color: $color-line-light;
+}
+
+hr.sep-oval {
+    display: block;
+    width: 8px;
+    height: 8px;
+    @include border-radius(50%);
+    margin: 1rem auto;
+    border: none;
+    background-color: $color-primary;
+
+    &.sep-oval-lg {
+        margin: 2rem auto;
+    }
+
+    &.sep-oval-muted {
+        background-color: $color-medium;
+    }
+}
+
+hr.sep-line {
+    display: block;
+    width: 30px;;
+    margin: 2rem auto;
+    border-width: 2px;
+    border-color: $color-line;
+}
+
+.dark hr.sep-line {
+    border-color: $color-line-light;
+}
+
+/* Close */
+.close {
+    color: inherit;
+    text-shadow: none;
+    @include opacity(0.6);
+    font-size: 14px;
+    @include transition-primary;
+
+    &:after {
+        font-family: themify;
+        content: "\e646";
+    }
+
+    &:hover, &:focus, &:active, &:focus:active {
+        outline: none;
+        color: inherit;
+        @include opacity(1);
+    }
+}
+.dark .close,
+.close.dark {
+    color: #fff;
+}
+
+/* Chart */
+.single-chart {
+    text-align: center;
+    margin-bottom: 2rem;
+    text-align: center;
+
+    .chart-title {
+        font-size: 1.1rem;
+        margin-bottom: 0;
+    }
+}
+
+.chart {
+    position: relative;
+    display: inline-block;
+
+    .chart-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        @include translate3d(-50%,-50%,0);
+        
+        .value {
+            color: $color-muted;
+            font-size: 1rem;
+            font-weight: $font-primary-semibold;
+            line-height: 1.25;
+
+            > span {
+                font-size: 1.75rem;
+                color: $color-global;
+            }
+        }
+
+        .title {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            margin-bottom: 0.25rem;
+            margin-top: 0.25rem;
+        }
+    }
+}
+
+.chart .percent {
+    display: inline-block;
+    font-weight: 600;
+    z-index: 2;
+}
+
+/* Button Go */
+.btn-go {
+    @include button-clear;
+    padding: 0;
+    color: inherit;
+    @include transition-primary;
+    display: inline-block;
+    @include opacity(0.5);
+
+    &:hover, &:focus {
+        color: inherit;
+        @include opacity(1);
+    }
+
+    &.btn-go-lg {
+        font-size: 2em;
+    }
+
+    &.btn-go-down {
+        > i {
+            @include animation(btnGoDownAnimation 1.2s linear infinite);
+            @include keyframes(btnGoDownAnimation) {
+                0% { 
+                    @include opacity(0);
+                    @include translateY(-0.75rem);
+                }
+                50% { 
+                    @include opacity(1);
+                    @include translateY(0);
+                }
+                100% { 
+                    @include opacity(0);
+                    @include translateY(0.75rem);
+                }
+            }
+        }
+    }
+
+    &.btn-go-right {
+        > i {
+            @include animation(btnGoRightAnimation 1.2s linear infinite);
+            @include keyframes(btnGoRightAnimation) {
+                0% { 
+                    @include opacity(0);
+                    @include translateX(-0.75rem);
+                }
+                50% { 
+                    @include opacity(1);
+                    @include translateX(0);
+                }
+                100% { 
+                    @include opacity(0);
+                    @include translateX(0.75rem);
+                }
+            }
+        }
+    }
+}
+
+/* List Basic */
+.list-basic {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2rem 0;
+
+    > li {
+        position: relative;
+        margin-bottom: 0.25em;
+        padding-left: 1.5rem;
+
+        &:before {
+            position: absolute;
+            left: 0;
+            top: 0.5em;
+            width: 5px;
+            height: 5px;
+            @include border-radius(50%);
+            content: ' ';
+            background-color: $color-muted;
+        }
+    }
+}
+
+.dark .list-basic {
+    > li {
+        &:before {
+            background-color: $color-line-light;
+        }
+    }
+}
+
+/* List Dots */
+.list-inline-dots {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+        position: relative;
+        padding-left: 15px;
+        font-weight: $font-primary-medium;
+        display: inline-block;
+
+        &:not(:last-child) {
+            margin-right: 1em;
+        }
+
+        &:before {
+            position: absolute;
+            left: 0;
+            top: 0.5em;
+            width: 4px;
+            height: 4px;
+            @include border-radius(50%);
+            content: ' ';
+            background-color: $color-primary;
+        }
+    }
+}
+
+/* List Dots */
+.list-dots {
+    list-style: none;
+    padding: 0;
+    margin: 0 -15px 1rem;
+    @include display-flex;
+    @include flex-wrap(wrap);
+
+    li {
+        position: relative;
+        padding-left: 15px;
+        margin: 0 15px;
+        font-weight: $font-primary-medium;
+        width: calc(50% - 30px);
+        margin-bottom: 0.75rem;
+
+        &:before {
+            position: absolute;
+            left: 0;
+            top: 0.5em;
+            width: 4px;
+            height: 4px;
+            @include border-radius(50%);
+            content: ' ';
+            background-color: $color-primary;
+        }
+    }
+}
+
+/* List Features */
+.list-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 -15px 1rem;
+    @include display-flex;
+    @include flex-wrap(wrap);
+
+    li {
+        position: relative;
+        margin: 0 15px;
+        font-weight: $font-primary-medium;
+        width: calc(50% - 30px);
+        margin-bottom: 0.75rem;
+
+        i {
+            font-size: 120%;
+            width: 1.5em;
+            margin-right: 0.5rem;
+            color: $color-primary;
+            vertical-align: middle;
+        }
+    }
+}
+
+
+/* Pre */
+
+pre {
+    padding: .5rem .75rem;
+    font-size: 90%;
+    background-color: #f7f7f9;
+    border-radius: .25rem;
+}

@@ -1,0 +1,76 @@
+@charset 'UTF-8';
+/* -----------------------------------------------------------------------------
+
+Ja - Advanced Personal Resume / CV vCard Template
+
+File:           Base SCSS File
+Version:        1.10
+Last change:    15/10/2017 
+Author:         Suelo 
+
+Table of Contents:
+
+1. Setup
+2. Basic
+3. Header 
+-- 3.1 Header Horizontal
+-- 3.2 Header Vertical
+4. Content 
+-- 4.1 Blog
+-- 4.2 Features
+-- 4.3 Media
+-- 4.4 Other
+-- 4.5 Points
+-- 4.6 Schedule
+-- 4.7 Sections
+-- 4.8 Timeline
+5. Footer
+6. Elements 
+-- 6.1 Ajax Modal
+-- 6.2 Alerts
+-- 6.3 Backgrounds
+-- 6.4 Badges
+-- 6.5 Buttons
+-- 6.6 Calendar
+-- 6.7 Cards
+-- 6.8 Carousel
+-- 6.9 Forms 
+-- 6.10 Icons
+-- 6.11 Loader
+-- 6.12 Modals
+-- 6.13 Navigations
+-- 6.14 Notification Bar
+-- 6.15 Other
+-- 6.16 Pagination
+-- 6.17 Pricing Table
+-- 6.18 Progress Bar
+-- 6.19 Testimonials
+-- 6.20 Typography
+-- 6.21 Window
+7. Animations 
+
+-------------------------------------------------------------------------------- */
+
+// Import Fonts 
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700');
+
+// Import CSS3 Mixins 
+@import "../../node_modules/compass-mixins/lib/compass/css3";
+@import "../../node_modules/compass-mixins/lib/compass/utilities";
+@import "../../node_modules/compass-mixins/lib/animation/core";
+
+// Import Include Media
+@import "../../node_modules/include-media/dist/_include-media.scss";
+
+// Import Config 
+@import "config";
+
+// Import Styles
+@import "setup";
+@import "basics";
+@import "navigation";
+@import "content";
+@import "footer";
+@import "elements";
+@import "animations";
+

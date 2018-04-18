@@ -1,0 +1,59 @@
+/* 4.2 Features
+----------------------------------------------------------*/
+
+.feature {
+    margin-bottom: 30px;
+
+    &.boxed {
+        padding: 2.5rem;
+        @include border-radius(0.3rem);
+        background-color: $color-light;
+    }
+}
+
+.dark .feature {
+    &.boxed {
+        
+    }
+}
+
+.bg-light .feature {
+    &.boxed {
+        background-color: #fff;
+    }
+}
+
+/* Feature #1 */
+.feature-1 {
+    @include display-flex;
+
+    .feature-icon {
+        font-size: 2rem;
+        color: $color-primary;
+        width: 4rem;
+        min-width: 4rem;
+    }
+    .feature-content {
+        @include flex(1 1 auto);
+    }
+}
+
+/* Feature #2 */
+.feature-2 {
+    padding: 2rem 0;
+    .feature-icon {
+        margin-bottom: 2rem;
+    }
+}
+
+.features-carousel {
+    margin-left: -50px;
+    margin-right: -50px;
+    .feature-2 {
+        padding: 2rem 50px;
+
+        &:not(:last-child) {
+            border-right: 1px dashed $color-line;
+        }
+    }
+}

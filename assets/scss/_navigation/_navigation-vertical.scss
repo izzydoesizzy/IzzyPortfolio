@@ -1,0 +1,192 @@
+/* 3.3 Navigation Vertical
+----------------------------------------------------------*/
+
+body.navigation-vertical {
+    position: relative;
+    
+    #navigation-toggle {
+        position: fixed;
+        top: 40px;
+        right: 40px;
+        z-index: 990;
+        display: none;
+
+        @include media("<=screen-lg") {
+            display: block;
+        }
+
+        @include media("<=screen-sm") {
+            top: 30px;
+            right: 30px;
+        }
+
+        @include media("<=screen-xxs") {
+            top: 20px;
+            right: 20px;
+        }
+    }
+
+    #content,
+    #footer {
+        .container,
+        .container-wide {
+            width: auto;
+            padding: 0;
+            margin: 0 5vw;
+
+            @include media("<=screen-xl") {
+                margin: 0 3vw;
+            }
+
+            @include media("<=screen-sm") {
+                margin: 0 15px;
+            }
+        }
+    }
+
+    .section-content,
+    .footer-content {
+        margin-left: 320px;
+
+        @include media("<=screen-lg") {
+            margin-left: 0;
+        }
+    }
+
+    .section-double .section-content,
+    #ajax-modal .section-content,
+    .window .section-content,
+    #ajax-modal .footer-content  {
+        margin-left: 0 !important;
+    }
+
+    
+    @include media(">screen-lg") {
+        .section-slider .section-bgs .slide .image {
+            @include translateX(160px);
+        }
+    }
+}
+
+#navigation.navigation-vertical {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    height: 100vh;
+    width: 320px;
+    max-width: calc(100vw - 90px);
+    background-color: rgba(#fff,0.7);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    padding-bottom: 40px;
+    overflow: auto;
+
+    @include media("<=screen-lg") {
+        @include transition-primary;
+        visibility: hidden;
+        @include translateX(-100%);
+
+        &.show {
+            @include translateX(0);
+            visibility: visible;
+        }
+    }
+
+    @include media("<=screen-xxs") {
+        max-width: calc(100vw - 70px);
+    }
+
+    &.dark {
+        background-color: rgba(#000,0.7);
+        color: #fff;
+    }
+
+    .photo {
+        position: relative !important;
+        width: 100%;
+        display: block;
+        height: 40vh;
+        min-height: 200px;
+        background-size: cover;
+        background-position: center center;
+        margin-bottom: 1.5rem;
+        overflow: hidden;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    .user {
+        position: relative;
+        color: inherit;
+        padding: 10vh 30px 0;
+        text-align: center;
+        display: block;
+
+
+        &:after {
+            display: block;
+            margin: 8vh auto;
+            width: 25%;
+            height: 2px;
+            content: ' ';
+            background-color: $color-primary;
+        }
+
+        .user-name {
+            margin-bottom: 0rem;
+            font-size: 1.35rem;
+        }
+
+        .user-caption {
+            font-weight: $font-primary-medium;
+            font-size: 0.9rem;
+            @include opacity(0.5);
+        }
+    }
+}
+
+.nav-primary-vertical {
+    @include flex-direction(column);
+    text-align: center;
+    margin: 0 25%;
+
+    li, .nav-item {
+        &:not(:last-child) {
+            border-bottom: 1px solid $color-line;
+        }
+        a, .nav-link {
+            position: relative;
+            font-size: 1.1rem;
+            font-weight: $font-primary-medium;
+            @include link-inherit;
+            padding: 0.9em 0;
+            display: inline-block;
+
+            &.active {
+                color: $color-primary;
+            }
+        }
+
+        &.active {
+            a, .nav-link {
+                color: $color-primary;
+            }
+        }
+    }
+}
+
+.dark .nav-primary-vertical {
+    li, .nav-item {
+        &:not(:last-child) {
+            border-color: $color-line-light;
+        }
+    }
+}
+
+.page-sliding #navigation.navigation-vertical { 
+    padding-bottom: 90px;
+}
+

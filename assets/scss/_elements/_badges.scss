@@ -1,0 +1,40 @@
+/* 6.4 Badges
+----------------------------------------------------------*/
+
+.badge {
+    border: none;
+    padding: 0.35em 0.7em 0.25em;
+    @include border-radius(2rem);
+    background-color: shade($color-light, 5%);
+    font-weight: $font-primary-medium;
+    font-size: 75%;
+    color: $color-global;
+
+    &.badge-fixed-size {
+        font-size: 0.9rem;
+        padding: 0.4rem 1.5rem;
+
+        > svg, > i {
+            vertical-align: middle;
+            margin-right: 0.5rem;
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
+            font-size: 18px;
+            margin-left: -1rem;
+            display: inline-block;
+        }
+    }
+}
+
+$k: 1;
+@for $i from 1 through length($colorVersions)/2 {
+    $type: nth($colorVersions,$k);
+    $color: nth($colorVersions,$k+1);
+
+    &.badge-#{$type} {
+        background-color: $color;
+        color: #fff;
+    }
+    $k: $k+2;
+}

@@ -1,0 +1,147 @@
+/* 4.8 Timeline
+----------------------------------------------------------*/
+
+.timeline {
+    position: relative;
+    padding: 4rem 0;
+
+    &:before {
+        position: absolute;
+        top: 0;
+        left: calc(50% - 2px);
+        bottom: 0;
+        width: 4px;
+        background-color: darken(desaturate(adjust-hue($color-light, -2.8571), 1.3468), 3.1373);
+        @include border-radius(4rem);
+        content: ' ';
+
+        @include media("<=screen-sm") {
+            left: 0;
+        }
+    }
+
+    .timeline-event {
+        position: relative;
+        @include pie-clearfix;
+
+        &:not(:last-child) {
+            margin-bottom: 4rem;
+        }
+
+        @include media("<=screen-sm") {
+            padding-left: 40px;
+        }
+
+        .timeline-event-point {
+            position: absolute;
+            top: 0;
+            left: calc(50% - 15px);
+            width: 30px;
+            height: 30px;
+            @include border-radius(50%);
+            background-color: $color-primary;
+            border: 8px solid #fff;
+
+            @include media("<=screen-sm") {
+                top: 0.25rem;
+                left: calc(0px - 14px);
+            }
+
+            &:after {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                @include border-radius(50%);
+                content: ' ';
+                background-color: $color-primary;
+                @include animation(timelinePointAnimation 2s infinite);
+                z-index: 0;
+
+                @include keyframes(timelinePointAnimation) {
+                    0% { @include scale(0); @include opacity(0.8); }
+                    100% { @include scale(2.5); @include opacity(0); }
+                }
+            }
+        }
+
+        .timeline-event-date,
+        .timeline-event-content {
+            width: 45%;
+
+            @include media("<=screen-sm") {
+                width: auto;
+            }
+        }
+
+        .timeline-event-date {
+            float: left;
+            font-weight: $font-primary-medium;
+            text-align: right;
+            font-size: 0.9rem;
+            margin-top: 0.4em;
+            color: $color-muted;
+
+            @include media("<=screen-sm") {
+                float: none;
+                text-align: left;
+            }
+        }
+
+        .timeline-event-content {
+            position: relative;
+            float: right;
+            margin-top: 0.25rem;
+            text-align: left;
+
+            @include media("<=screen-sm") {
+                float: none;
+            }
+        }
+
+        .timeline-event-title {
+            font-size: 1rem;
+            margin-bottom: 0;
+            line-height: 1.2;
+        }
+
+        .timeline-event-caption {
+            font-weight: $font-primary-medium;
+            font-size: 0.85rem;
+        }
+
+        &:nth-child(2n) {
+            .timeline-event-date {
+                float: right;
+                text-align: left;
+
+                @include media("<=screen-sm") {
+                    float: none;
+                }
+            }
+
+             .timeline-event-content {
+                float: left;
+                text-align: right;
+
+                @include media("<=screen-sm") {
+                    text-align: left;
+                }
+
+                &:after {
+                    left: 100%;
+                    border-width: 20px 20px 0 0;
+                    border-color: $color-light transparent transparent transparent;
+
+                    @include media("<=screen-sm") {
+                        right: 100%;
+                        left: auto;
+                        border-width: 0 20px 20px 0;
+                        border-color: transparent $color-light transparent transparent;
+                    }
+                }
+            }
+        }
+    }
+}

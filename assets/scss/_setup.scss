@@ -1,0 +1,90 @@
+/* ----------------------------------------------------------------------------- */
+/* --- 1. SETUP
+/* ----------------------------------------------------------------------------- */
+
+html {
+	font-size: 15px;
+
+	@include media("<=screen-xs") {
+		font-size: 14px;
+	}
+
+	&.locked-scrolling {
+		overflow: hidden;
+
+		body {
+			overflow: hidden;
+		}
+	}
+}
+
+body { 
+	position: relative;
+	color: $color-global;
+	font-family: $font-primary;
+	font-weight: $font-primary-light;
+	line-height: 1.5;
+	overflow-x: hidden;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+button, input, textarea {
+    font-family: inherit;
+}
+
+a {
+	color: $color-primary;
+	@include transition-primary;
+
+	&:hover, &:focus {
+		color: shade($color-primary,10%);
+		text-decoration: none;
+	}
+
+	&.link-inherit {
+		@include link-inherit;
+	}
+}
+
+b, strong {
+	font-weight: bold;
+}
+
+textarea:focus, input:focus, a:focus, a:visited, *:focus { outline: none; }
+
+iframe { border: none; }
+
+img { max-width: 100%; height: auto; -webkit-backface-visibility: hidden;}
+
+.container-wide {
+	margin: 0 7vw;
+	padding: 0;
+
+    @include media("<=screen-sm") {
+        margin: 0 20px;
+    }
+}
+
+.container-slim {
+	width: 640px;
+	margin: 0 auto;
+
+	@include media("<=screen-sm") {
+		width: auto;
+		padding: 0 30px;
+	}
+
+	@include media("<=screen-xs") {
+		padding: 0 15px;
+	}
+}
+
+.row.gutters-lg { 
+    margin-left: -40px; 
+    margin-right: -40px;
+}
+.row.gutters-lg > *[class^='col'], .row.gutters-lg > *[class*=' col'] { 
+    padding-left: 40px; 
+    padding-right: 40px; 
+}

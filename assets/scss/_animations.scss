@@ -1,0 +1,48 @@
+/* ----------------------------------------------------------------------------- */
+/* --- 7. ANIMATIONS
+/* ----------------------------------------------------------------------------- */
+
+.animated {
+    visibility: hidden;
+	@include animation-delay(0.2s);
+
+    &.visible {
+        visibility: visible;
+    }
+}
+
+/* Zooming */
+
+.zooming {
+	@include animation(zooming 18s infinite both);
+}
+
+@include keyframes(zooming) {
+	0% { @include scale(1); }
+	50% { @include scale(1.1); }
+	100% { @include scale(1); }
+}
+
+.hanging {
+	@include animation(hanging 8s infinite both);
+}
+
+/* Hanging */
+
+@include keyframes(hanging) {
+	0% { @include translateY(0); }
+	50% { @include translateY(-3.5%); }
+	100% { @include translateY(0); }
+}
+
+/* Blinking */
+
+.blinking {
+    @include animation(blinking 2s infinite both);
+}
+
+@include keyframes(blinking) {
+    0% { @include opacity(1); }
+    50% { @include opacity(0); }
+    100% { @include opacity(1); }
+}

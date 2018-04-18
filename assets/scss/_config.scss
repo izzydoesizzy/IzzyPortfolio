@@ -1,0 +1,157 @@
+// SASS Configuration File
+
+// Fonts
+// -----------------------------------------
+
+$font-primary: 'Poppins', sans-serif;
+
+$font-primary-light: 300;
+$font-primary-regular: 400;
+$font-primary-medium: 500;
+$font-primary-semibold: 600;
+$font-primary-bold: 700;
+
+// Colors
+// -----------------------------------------
+
+$color-primary: #1E8DEE !default;
+$color-secondary: #49B79C !default;
+$color-light: #F9F9F9;
+$color-medium: #b3becc;
+$color-dark: #181818;
+
+$color-global: #2F2F2F;
+$color-muted: rgba($color-global,0.5);  
+$color-muted-light: rgba(255,255,255,0.6);  
+
+$color-blue: #1E8DEE;
+$color-orange: #ec6922;
+$color-red: #CE3232;
+$color-green: #54ae61;
+$color-gold: #EECE72;
+
+$color-line: rgba(#000,0.1);
+$color-line-light: rgba(255,255,255,0.15);
+
+// Colors - Social 
+$color-facebook: #213553;
+$color-twitter: #3aa8db;
+$color-google: #d04f3e;
+$color-behance: #1882ff;
+$color-dribbble: #e95aae;
+$color-flickr: #f9429c;
+$color-instagram: #4f86ac;
+$color-linkedin: #008bc2;
+$color-pinterest: #cb1f24;
+$color-skype: #00bef4;
+$color-slack: #44ba97;
+$color-tumblr: #435971;
+$color-vimeo: #0bc4ef;
+$color-vine: #00be9b;
+$color-youtube: #ed4533;
+
+// Other 
+$nav-horizontal-height: 80px;
+$nav-horizontal-height-mobile: 60px;
+
+// Media Queries
+// -----------------------------------------
+
+$breakpoints: (screen-xl: 1500px, screen-lg: 1199px, screen-md: 991px, screen-sm: 767px, screen-xs: 575px, screen-xxs: 360px, screen-height-sm: 550px);
+
+// Mixins
+// -----------------------------------------
+
+@mixin transition-primary() {
+	@include transition(all 0.3s ease-in-out);
+}
+
+@mixin transition-secondary() {
+    @include transition(all 0.6s ease-in-out);
+}
+
+@mixin transition-tertiary() {
+	@include transition(all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275));
+}
+
+@mixin button-clear {
+	background-color: transparent;
+    @include appearance(none);
+    border: none;
+    outline: none;
+    cursor: pointer;
+    @include transition-primary;
+
+    &:hover, &:focus, &:active, &:focus:active {
+        outline: none;
+    }
+}
+
+@mixin input-clear {
+	background-color: transparent;
+    @include appearance(none);
+    border: none;
+    outline: none;
+    cursor: pointer;
+    @include transition-primary;
+}
+
+@mixin fill-parent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    content: ' ';
+}
+
+@mixin center-item {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    @include translate3d(-50%,-50%,0);
+}
+
+@mixin link-inherit {
+    color: inherit;
+    &:hover, &:focus {
+        color: $color-primary;
+    }
+}
+
+@mixin gradient-primary-h {
+    background-image: linear-gradient(to right, $color-secondary, $color-primary);
+}
+
+// Arrays
+// -----------------------------------------
+
+$socialBrands:
+    "facebook", $color-facebook,
+    "twitter", $color-twitter,
+    "google", $color-google,
+    "behance", $color-behance,
+    "dribbble", $color-dribbble,
+    "flickr", $color-flickr,
+    "instagram", $color-instagram,
+    "linkedin", $color-linkedin,
+    "pinterest", $color-pinterest,
+    "skype", $color-skype,
+    "slack", $color-slack,
+    "tumblr", $color-tumblr,
+    "vimeo", $color-vimeo,
+    "vine", $color-vine,
+    "youtube", $color-youtube;
+
+$colorVersions:
+	"primary", $color-primary,
+	"secondary", $color-secondary,
+	"info", $color-blue,
+	"warning", $color-orange,
+	"danger", $color-red,
+	"success", $color-green,
+    "dark", $color-dark,
+	"muted", $color-muted,
+    "white", #fff;
+
+

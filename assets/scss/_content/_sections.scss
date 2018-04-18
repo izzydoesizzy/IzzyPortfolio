@@ -1,0 +1,377 @@
+/* 4.7 Sections
+----------------------------------------------------------*/
+
+.section {
+    position: relative;
+    overflow: hidden;
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+
+    @include media("<=screen-sm") {
+        padding-top: 4.5rem;
+        padding-bottom: 4.5rem;
+    }
+
+    &.cover {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+
+    &.section-lg {
+        padding-top: 12rem;
+        padding-bottom: 12rem;
+    }
+
+    .section-content {
+        position: relative;
+        z-index: 2;
+    }
+}
+
+body.page-sliding {
+    .fp-scroller {
+        padding-top: 6rem;
+        padding-bottom: 6rem;
+
+        @include media("<=screen-sm") {
+            padding-top: 4.5rem;
+            padding-bottom: 4.5rem;
+        }
+    }
+    .section.pb-0 {
+        .fp-scroller {
+            padding-bottom: 0 !important;
+        }
+    }
+    .section.pt-0 {
+        .fp-scroller {
+            padding-top: 0 !important;
+        }
+    }
+    #content {
+        .section:not(footer) {
+            padding-top: 0 !important;
+            padding-bottom: 0 !important;
+
+            &.cover .fp-scroller {
+                padding-top: 0;
+                padding-bottom: 0;
+            }
+        }
+    }
+}
+
+/* Section Header */
+.section-header {
+    position: relative;
+    font-weight: $font-primary-semibold;
+    margin-bottom: 4rem;
+    z-index: 5;
+    @include display-flex;
+
+    @include media("<=screen-sm") {
+        margin-bottom: 3rem;
+    }
+
+    .section-header-image {
+        @include border-radius(50%);
+        width: 44px;
+        height: 44px;
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 0.75rem;
+        @include flex(0 0 auto);
+
+        & + .section-header-content {
+            margin-top: 13px;
+        }
+    }
+
+    .section-header-indicator {
+        position: relative;
+        top: 0.45em;
+        width: 6px;
+        height: 6px;
+        @include border-radius(50%);
+        display: block;
+        margin-right: 1rem;
+        @include flex(0 0 auto);
+        background-color: $color-primary;
+
+        &:after {
+        @include fill-parent;
+            background-image: radial-gradient(rgba($color-primary,0), $color-primary);
+            background-size: cover;
+            @include animation(headerIndicatorAnimation 1s infinite);
+            @include border-radius(50%);
+            z-index: 2;
+        }
+
+        @include keyframes(headerIndicatorAnimation) {
+            0% { 
+                @include scale(1);
+            }
+            100% { 
+                @include scale(3); 
+                @include opacity(0);
+            }
+        }
+    }
+
+    .section-header-content {
+        @include transition-primary;
+
+        .nav {
+            margin-top: 1.5rem;
+        }
+
+        .section-header-caption {
+            margin-top: 1.5rem;
+            font-size: 0.85rem;
+
+            .module {
+                display: inline-block;
+                margin-bottom: 0.5rem;
+
+                &:not(:last-child) {
+                    margin-right: 1.5rem;
+                }
+            }
+        }
+    }
+}
+
+/* Section Home - Basic */
+.section-home-basic {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+
+    .bg-image-container:after,
+    .bg-video:after {
+        @include fill-parent;
+        background-image: linear-gradient(to top, rgba(#000,0.6), rgba(#000,0));
+        z-index: 1;
+    }
+
+    .section-content {
+        position: absolute;
+        bottom: 5vw;
+        left: 0;
+        right: 0;
+        z-index: 2;
+
+        @include media("<=screen-sm") {
+            position: relative;
+            bottom: 0;
+        }
+
+        @include media("height<=screen-height-sm") {
+            position: relative;
+            bottom: 0;
+        }
+    }
+}
+
+/* Section Slider */
+.section-slider {
+    cursor: move;
+    
+    .section-bgs {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+
+        .slick-list,
+        .slick-track,
+        .slick-slide {
+            height: 100%;
+        }
+    }
+
+    .section-bgs {
+        .slide {
+            position: relative; 
+
+            .image {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+
+                @include media("<=screen-sm") {
+                    @include opacity(0.3);
+                }
+
+                > .bg-image-container {
+                    @include transition(3s ease-out);
+                }
+
+                &.left {
+                    > .bg-image-container {
+                        @include transform(translateX(-30px) scale(1.1));
+                        background-position: right center;
+                    }
+                }
+
+                &.right {
+                    > .bg-image-container {
+                        @include transform(translateX(30px) scale(1.1));
+                        background-position: left center;
+                    }
+                }
+            }
+
+            &.slick-current {
+                .image {
+                    > .bg-image-container {
+                        @include transform(translateX(0) scale(1));
+                    }
+                }
+            }
+        }
+    }
+
+    .section-slides {
+        position: relative;
+        z-index: 2;
+
+        .slide {
+            padding-top: 6vh;
+
+            @include media("height<=screen-height-sm") {
+                padding-top: 0;
+            }
+
+            .section-content {
+                width: 100%;
+            }
+        } 
+        .slick-prev, .slick-next {
+            &:before {
+                color: $color-global;
+            }
+        }
+        .slick-prev {
+            left: 25px;
+            [dir="rtl"] & {
+                right: 25px;
+            }
+        }
+
+        .slick-next {
+            right: 25px;
+            [dir="rtl"] & {
+                left: 25px;
+            }
+        }
+
+        &.outer-controls {
+            .slick-prev {
+                left: -55px;
+                [dir="rtl"] & {
+                    right: -55px;
+                }
+            }
+
+            .slick-next {
+                right: -55px;
+                [dir="rtl"] & {
+                    left: -55px;
+                }
+            }
+        }
+
+        .slick-dots {
+            margin-top: 3rem;
+        }
+    }
+
+    &.dark .section-slides {
+        .slick-prev, .slick-next {
+            &:before {
+                color: #fff;
+            }
+        }
+    }
+}
+
+body.page-scrolling .section-slider {
+    .section-content {
+        top: 50%;
+        @include translateY(-50%);
+
+        @include media("height<=screen-height-sm") {
+            top: 50%;
+            @include translateY(0);
+        }
+
+        @include media("<=screen-sm") {
+            top: 50%;
+            @include translateY(0);
+        }
+    }
+}
+
+/* Section Image Edge */
+.section-image-edge {
+    position: relative;
+
+    > .image {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+
+        > .bg-image-container {
+            background-size: 100% auto;
+        }
+    }
+}
+
+/* Section Double */
+.section-double {
+    @include media("<=screen-sm") {
+        padding-top: 0;
+
+        .fp-scroller {
+            padding-top: 0 !important;
+        }
+    }
+
+    .section-image {
+        position: absolute;
+        top: 0;
+        height: 100%;
+
+        @include media("<=screen-sm") {
+            position: relative;
+            height: 300px;
+            max-height: 100vh;
+            margin-bottom: 4rem;
+        }
+    }
+}
+
+/* Section Contact */
+.section-contact {
+    .section-contact-content {
+        @include transition-primary;
+    }
+    &.map-visible {
+        .section-contact-content {
+            visibility: hidden;
+            @include opacity(0);
+            @include translateY(10px);
+            pointer-events: none;
+        }
+        .bg-map.bg-map-overlay:before {
+            @include opacity(0);
+            visibility: hidden;
+        }
+    }
+}
+
+/* Section Case Study Header */
+.section-case-study-header {
+    min-height: 50vh;
+}

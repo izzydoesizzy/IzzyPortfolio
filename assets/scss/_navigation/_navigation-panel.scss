@@ -1,0 +1,160 @@
+/* 3.2 Navigation Panel
+----------------------------------------------------------*/
+
+body.navigation-panel {
+    position: relative;
+
+    #navigation-toggle {
+        position: fixed;
+        top: 50px;
+        right: 50px;
+        z-index: 990;
+
+        @include media("<=screen-xl") {
+            top: 40px;
+            right: 40px;
+        }
+
+        @include media("<=screen-sm") {
+            top: 30px;
+            right: 30px;
+        }
+
+        @include media("<=screen-xxs") {
+            top: 20px;
+            right: 20px;
+        }
+    }
+}
+
+#navigation.navigation-panel {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    height: 100vh;
+    width: 100vw;
+    visibility: hidden;
+    @include opacity(0);
+    @include transition-primary;
+
+    &:before {
+        @include fill-parent;
+        background-image: linear-gradient(to left, rgba(#fff,0.8), rgba(#fff,0));
+        @include transition-secondary;
+    }
+
+    > * {
+        position: relative;
+        z-index: 2;
+    }
+
+    > .navigation-inner {
+        margin: 0 140px;
+        top: 50%;
+        @include translateY(-50%);
+
+        @include media("<=screen-xl") {
+            margin: 0 120px;
+        }
+
+        @include media("<=screen-sm") {
+            margin: 80px 100px 50px;
+            top: 0;
+            @include translateY(0);
+        }
+    }
+
+    .nav-primary-panel {
+        li, .nav-item {
+            @include transition-primary;
+            @include opacity(0);
+            @include translateX(10px);
+
+            @for $i from 1 through 12 {
+                &:nth-child(#{$i}) {
+                    @include transition-delay(75ms * $i);
+                }
+            }
+        }
+    }
+
+    &.dark {
+        &:before {
+            background-image: linear-gradient(to left, rgba(#000,0.8), rgba(#000,0));
+        }
+    }
+
+    &.show {
+        visibility: visible;
+        @include opacity(1);
+
+        .nav-primary-panel {
+            li, .nav-item {
+                @include opacity(1);
+                @include translateX(0);
+            }
+        }
+    }
+}
+
+.nav-primary-panel {
+    @include flex-direction(column);
+    text-align: right;
+
+    li, .nav-item {
+        a, .nav-link {
+            position: relative;
+            font-size: 1.65rem;
+            @include link-inherit;
+            padding: 0.45em 0;
+            display: inline-block;
+
+            @include media("<=screen-sm") {
+                font-size: 1.4rem;
+            }
+
+            &:after {
+                position: absolute;
+                top: calc(50% - 1px);
+                left: calc(100% + 1.5rem);
+                height: 2px;
+                width: 40px;
+                content: ' ';
+                background-color: $color-global;
+                @include transform-origin(left, center);
+                @include scaleX(0);
+                visibility: hidden;
+                @include transition-primary;
+            }
+
+            &.active {
+
+                &:after {
+                    @include scaleX(1);
+                    visibility: visible;
+                }
+            }
+        }
+
+        &.active {
+            a, .nav-link {
+                &:after {
+                    @include scaleX(1);
+                    visibility: visible;
+                }
+            }
+        }
+    }
+}
+
+.dark .nav-primary-panel {
+    li, .nav-item {
+        a, .nav-link {
+            &:after {
+                background-color: #fff;
+            }
+        }
+    }
+}
+

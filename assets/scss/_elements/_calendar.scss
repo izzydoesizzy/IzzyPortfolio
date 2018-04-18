@@ -1,0 +1,223 @@
+/* 6.6 Calendar
+----------------------------------------------------------*/
+
+.calendar-container {
+    position: relative;
+    padding: 0 50px;
+
+    @include media('<=screen-md') {
+        padding: 0 40px;
+        margin-left: -10px;
+        margin-right: -10px;
+    }
+}
+
+.btn-calendar-nav {
+    @include button-clear;
+    position: absolute;
+    top: 50%;
+    display: block;
+    height: 34px;
+    width: 34px;
+    line-height: 30px;
+    background-color: #fff;
+    font-size: 1.3rem;
+    cursor: pointer;
+    color: $color-global;
+    background-color: shade($color-light,10%);
+    @include translate(0, -50%);
+    padding: 0;
+    border: none;
+    outline: none;
+    text-align: center;
+    z-index: 2;
+    @include transition-primary;
+    @include border-radius(50%);
+
+    &:hover, &:focus {
+        outline: none;
+        background-color: $color-primary;
+        color: #fff;
+    }
+
+    &.prev {
+        left: 0;
+
+        &:hover {
+            margin-left: -3px;
+        }
+    }
+
+    &.next {
+        right: 0;
+
+        &:hover {
+            margin-right: -3px;
+        }
+    }
+}
+
+.fc-view {
+    background: #fff;
+}
+
+.fc-basic-view .fc-day-number, .fc-basic-view .fc-week-number {
+    padding: 0.2rem 0.4rem;
+    font-size: 1.6rem;
+    font-weight: 200;
+
+    @include media('<=screen-md') {
+        font-size: 1.25rem;
+    }
+}
+
+.fc-unthemed td.fc-today {
+    background-color: transparent;
+}
+
+.fc-today {
+    color: $color-primary;
+}
+
+.fc th {
+    font-size: 1.1rem;
+    font-weight: 200;
+
+    @include media('<=screen-md') {
+        font-size: 0.9rem;
+    }
+}
+
+.fc .fc-toolbar {
+    @include media('<=screen-xs') {
+        .fc-left, .fc-center, .fc-right {
+            float: none;
+            margin-bottom: 0.8rem;
+            text-align: center;
+            display: block;
+        }
+
+        > * > * {
+            float: none;
+            vertical-align: middle;
+        }
+    }
+
+    h2 {
+        font-size: 1.2rem;
+        font-weight: 600;
+        line-height: 35px;
+    }
+}
+
+.fc-state-default {
+    color: $color-global;
+    background: shade($color-light,10%);
+    @include box-shadow(none);
+    @include text-shadow(none);
+    border: none;
+    @include transition-primary;
+
+    &:hover, &:focus, &:active {
+        outline: none;
+    }
+}
+
+.fc .fc-button-group {
+    > * {
+        margin: 0;
+
+        &:not(:first-child) {
+            border-left: 1px solid $color-line;
+        }
+    }
+}
+
+.fc-event, a.fc-event {
+    background-color: $color-light;
+    border: none;
+    color: $color-global;
+    font-weight: $font-primary-medium;
+    font-size: 0.8rem;
+
+    &.primary {
+        background-color: $color-primary;
+        color: #fff;
+
+        &:hover, &:focus {
+            color: #fff;
+        }
+    }
+
+    &:hover, &:focus {
+        color: $color-global;
+    }
+
+    .fc-bg {
+        background: transparent;
+    }
+}
+
+
+.fc-day-grid-event.fc-event, a.fc-day-grid-event.fc-event {
+    position: relative;
+    background: transparent !important;
+    padding-left: 1em;
+    border: none;
+    color: $color-global;
+
+    &:before {
+        position: absolute;
+        top: 0.4em;
+        left: 0.5em;
+        bottom: 0;
+        width: 4px;
+        height: 4px;
+        background-color: $color-medium;
+        content: ' ';
+        @include border-radius(50%);
+    }
+
+    &.primary {
+        &:before {
+            background-color: $color-primary;
+        }
+        &:hover, &:focus {
+            color: $color-global;
+        }
+    }
+}
+
+.fc-event-dot {
+    background-color: $color-medium;
+
+    &.primary {
+        background-color: $color-primary;
+    }
+}
+
+.fc button {
+    font-size: 0.8rem;
+    font-family: $font-primary;
+    font-weight: 600;
+    height: 2.5rem;
+    padding: 0.4rem 1em;
+
+    &.fc-state-active {
+        background-color: $color-primary;
+        color: #fff;
+    }
+}
+
+.fc-toolbar button:focus,
+.fc-toolbar .fc-state-hover, .fc-toolbar .ui-state-hover {
+    z-index: inherit;
+}
+
+.fc-state-disabled {
+    @include opacity(0.3);
+}
+
+.fc-state-down {
+    @include translateY(2px);
+}

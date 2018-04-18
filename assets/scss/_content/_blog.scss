@@ -1,0 +1,295 @@
+/* 4.1 Blog
+----------------------------------------------------------*/
+	
+.post {
+	margin-bottom: 2rem;
+
+	.post-image {
+		img {
+			width: 100%;
+		}
+
+		.btn-play {
+			position: absolute;
+		    top: calc(50% - 40px);
+		    left: calc(50% - 40px);
+		}
+	}
+
+	ul.post-meta {
+		position: relative;
+		list-style: none;
+		padding: 0;
+		margin: 0 0 1.5rem 0;
+		display: block;
+		font-size: 0.9rem;
+
+		> li {
+			display: inline-block;
+			font-size: 0.9rem;
+			color: $color-muted;
+			font-weight: 400;
+
+			a {
+				@include link-inherit;
+			}
+
+			> span {
+				@include opacity(0.7);
+			}
+
+			&:not(:last-child) {
+				margin-right: 8px;
+
+				&:after {
+					content: "";
+					margin-left: 11px;
+					width: 4px;
+					height: 4px;
+					background-color: $color-muted;
+					@include border-radius(50%);
+					display: inline-block;
+					vertical-align: middle;
+				}
+			}
+		}
+	}
+
+	&.item {
+		@include border-radius(0.3rem);
+		background-color: $color-light;
+
+		a:not(.btn) {
+			color: inherit;
+
+			&:hover, &:focus {
+				color: $color-primary;
+			}
+		}
+
+		.post-image {
+			position: relative;
+			@include border-radius(0.3rem 0.3rem 0 0);
+			overflow: hidden;
+
+			img {
+				@include border-radius(0.3rem 0.3rem 0 0);
+				@include transition-secondary;
+			}
+		}
+
+		.post-content {
+			position: relative;
+			padding: 2rem 2.5rem;
+			text-align: center;
+
+			.post-title {
+				font-size: 1.25rem;
+				margin-bottom: 0.25rem;
+			}
+
+			p {
+				color: $color-muted;
+			}
+
+			> *:last-child {
+				margin-bottom: 0;
+			}
+		}
+
+		&:hover {
+			.post-image img {
+				@include scale(1.05);
+			}
+		}
+	}
+
+	&.single {
+
+		.date {
+			margin-bottom: 2rem;
+			font-size: 1.1rem;
+		}
+
+		.post-image {
+			position: relative;
+			height: 60vh;
+			min-height: 300px;
+		}
+
+		.post-header {
+			text-align: center;
+			margin-bottom: 3rem;
+			border-bottom: 4px solid $color-light;
+			padding-bottom: 2.5rem;
+
+			.post-title {
+				margin: 1rem 0;
+			}
+		}
+
+		.post-content {
+			padding-top: 4rem;
+			padding-bottom: 4rem;
+
+			> p, > figure, > blockquote {
+				margin-bottom: 3rem;
+			}
+
+			@include media('<=screen-md') {
+				padding-top: 3rem;
+			}
+
+			@include media('<=screen-xs') {
+				padding-top: 2rem;
+			}
+		}
+
+		.post-module {
+			border-top: 4px solid $color-light;
+			padding-top: 4rem;
+			margin-top: 4rem;
+		}
+	}
+}
+
+.bg-light .post {
+	&.item {
+		background-color: #fff;
+	}
+}
+
+.dark .post {
+	ul.post-meta {
+		li {
+			color: $color-muted-light;
+		}
+	}
+	&.item {
+		background-color: rgba(#000,0.3);
+
+		.post-content p {
+			color: $color-muted-light;
+		}
+	}
+}
+
+.post-nav {
+	position: fixed;
+	top: 1rem;
+	left: 50%;
+	@include translateX(-50%);
+	z-index: 20;
+	background-color: rgba(#000,0.6);
+	@include border-radius(2rem);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    @include display-flex;
+    @include box-shadow(1px 1px 15px 0 rgba(#000,0.15));
+
+	> a {
+		height: 32px;
+		padding: 0 1rem;
+		font-size: 14px;
+		line-height: 35px;
+		text-align: center;
+		color: rgba(#fff,0.75);
+
+		&:not(:last-child) {
+			border-right: 1px solid $color-line-light;
+		}
+
+	    &:hover, &:focus {
+	    	color: #fff;
+	    }
+	}
+}
+
+@include media(">screen-lg") {
+    .navigation-vertical .post-nav {
+       	margin-left: 160px;
+    }
+}
+
+.navigation-horizontal .post-nav {
+   	top: calc(1rem + #{$nav-horizontal-height});
+
+   	@include media("<=screen-md") {
+        top: calc(1rem + #{$nav-horizontal-height-mobile});
+    }
+}
+
+.comments {
+	list-style: none;
+	margin: 0 auto;
+	padding: 0;
+	max-width: 700px;
+
+	p {
+		margin-bottom: 0;
+	}
+
+	> li {
+		margin-bottom: 1.5rem;
+		background-color: #fff;
+		@include border-radius(0.3rem);
+
+		.avatar {
+			width: 58px;
+			height: 58px;
+			float: left;
+
+			@include media('<=screen-xs') {
+				width: 28px;
+				height: 28px;
+			}
+
+			> img {
+				@include border-radius(50%);
+				width: 58px;
+				height: 58px;
+
+				@include media('<=screen-xs') {
+					width: 28px;
+					height: 28px;
+				}
+			}
+		}
+		.content {
+			padding: 10px 0;
+			margin-left: 78px;
+
+			@include media('<=screen-xs') {
+				padding-top: 0;
+				margin-left: 38px;
+			}
+	
+			> .details {
+				font-size: 0.9rem;
+				color: $color-muted;
+			}
+		}
+
+		ul {
+			margin-top: 1rem;
+			padding: 1rem;
+			background-color: $color-light;
+			@include border-radius(0.3rem);
+			margin-left: 58px;
+			list-style: none;
+
+			li {
+				.details {
+					font-size: 0.8rem;
+				}
+				p {
+					font-size: 0.9rem;
+				}
+			}
+
+			@include media('<=screen-xs') {
+				padding-left: 30px;
+			}
+		}
+	}
+}

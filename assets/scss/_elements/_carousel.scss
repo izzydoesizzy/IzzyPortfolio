@@ -1,0 +1,219 @@
+/* 6.8 Carousel
+----------------------------------------------------------*/
+
+.carousel {
+	position: relative;
+
+	.owl-item {
+		overflow: hidden;
+	}
+
+	&:hover {
+		.owl-buttons {
+			@include opacity(1);
+			@include scaleX(1);
+			visibility: visible;
+		}
+	}
+
+	&.carousel-items {
+		margin-left: -15px;
+		margin-right: -15px;
+
+		.carousel-item {
+			padding-left: 15px;
+			padding-right: 15px;
+		}
+	}
+
+    &.dots-left {
+        .slick-dots {
+            text-align: left;
+        }
+    }
+}
+
+/* Arrows */
+
+.slick-prev,
+.slick-next {
+    position: absolute;
+    display: block;
+    height: 20px;
+    width: 20px;
+    line-height: 0px;
+    font-size: 0px;
+    cursor: pointer;
+    background: transparent;
+    color: transparent;
+    top: 50%;
+    @include translate(0, -50%);
+    padding: 0;
+    border: none;
+    outline: none;
+    z-index: 2;
+    @include transition-primary;
+    visibility: hidden;
+    @include opacity(0);
+    
+    &:hover, &:focus {
+        outline: none;
+        background: transparent;
+        color: transparent;
+        &:before {
+            @include opacity(1); 
+        }
+    }
+    &.slick-disabled:before {
+        @include opacity(0.3); 
+    }
+    &:before {
+        font-family:'FontAwesome';
+        font-size: 1.7rem;
+        line-height: 1;
+        color: $color-global;
+        @include opacity(0.5); 
+        @include transition-primary;
+        display: inline-block;
+    }
+}
+
+.slick-prev {
+    left: -25px;
+    [dir="rtl"] & {
+        left: auto;
+        right: -25px;
+    }
+    &:before {
+        content: '\f104';
+        [dir="rtl"] & {
+            content: '\f105';
+        }
+    }
+    &:hover:before {
+        @include translateX(-3px);
+    }
+}
+
+.slick-next {
+    right: -25px;
+    [dir="rtl"] & {
+        left: -25px;
+        right: auto;
+    }
+    &:before {
+        content: '\f105';
+        [dir="rtl"] & {
+            content: '\f104';
+        }
+    }
+    &:hover:before {
+        @include translateX(3px);
+    }
+}
+
+.carousel:hover,
+.section-slider:hover {
+    .slick-prev,
+    .slick-next {
+        visibility: visible;
+        @include opacity(1);
+    }
+}
+
+/* Dots */
+
+.slick-dots {
+    list-style: none;
+    display: block;
+    padding: 0;
+    margin: 1.5rem 0 0;
+    width: 100%;
+    text-align: center;
+
+    li {
+        position: relative;
+        display: inline-block;
+        margin: 0;
+        padding: 0;
+        cursor: pointer;
+
+        button {
+        	position: relative;
+            border: 0;
+            background: transparent;
+            display: block;
+            height: 100%;
+            width: 100%;
+            outline: none;
+            line-height: 0px;
+            font-size: 0px;
+            color: transparent;
+            padding: 8px 10px;
+            cursor: pointer;
+
+            &:before {
+                position: absolute;
+                top: 4px;
+                left: 50%;
+                margin-left: -3px;
+                width: 5px;
+                height: 5px;
+                background-color: $color-dark;
+                content: ' ';
+                @include opacity(0.3);
+                @include border-radius(50%);
+                @include transition-primary;
+                @include transform-origin(center, bottom);
+            }
+
+            &:hover, &:focus {
+                outline: none;
+                &:before {
+                    @include opacity(1);
+                }
+            }
+        }
+
+        &.slick-active button:before {
+            @include opacity(1);
+            background-color: $color-primary;
+        }
+    }
+}
+
+.dark .slick-dots li {
+    button:before {
+        background-color: #fff;
+    }
+    &.slick-active button:before {
+        background-color: $color-primary;
+    }
+}
+
+.inner-controls {
+    .slick-prev, .slick-next {
+        &:before {
+            color: #fff;
+        }
+    }
+    .slick-prev {
+        left: 25px;
+        [dir="rtl"] & {
+            right: 25px;
+        }
+    }
+
+    .slick-next {
+        right: 25px;
+        [dir="rtl"] & {
+            left: 25px;
+        }
+    }
+
+    .slick-dots {
+        position: absolute;
+        bottom: 25px;
+        margin-top: 0;
+    }
+}
