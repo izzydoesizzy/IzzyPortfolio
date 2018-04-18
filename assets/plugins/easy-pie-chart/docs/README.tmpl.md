@@ -1,4 +1,4 @@
-# {%= name %}
+<!-- # {%= name %}
 
 > {%= description %}
 
@@ -30,3 +30,4 @@
 
 ## Copyright
 {%= copyright %} {%= license %}
+ -->
