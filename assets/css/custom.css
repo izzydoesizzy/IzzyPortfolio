@@ -1,2 +1,10 @@
-#namehover {display:visible}
-#namehover:hover:before {content:"(Iskender)"}
+/*#namehover {display:visible}
+#namehover:hover:before {content:"(Iskender)"}*/
+
+.logos:hover {
+	opacity: 0.7;
+}
+
+.spread-images>li img {
+    max-width: 150px;
+}
