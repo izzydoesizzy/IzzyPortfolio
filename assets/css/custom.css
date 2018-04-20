@@ -8,3 +8,11 @@
 .spread-images>li img {
     max-width: 150px;
 }
+
+#lastname {
+	font-size: 3.5rem;
+}
+
+#fullname {
+	line-height: 0.7;
+}
