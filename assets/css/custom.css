@@ -28,6 +28,30 @@
 	padding-bottom:0;
 }
 
+#profilepic {
+	height:150px;
+	width: auto;
+	border: 6px solid #0275d8;
+	padding: 2px;
+	margin-bottom: 15px;
+}
+
+#profilepic-container {
+	text-align: center;
+}
+
+.resume-box {
+	text-align: left;
+}
+
+#intro-paragraph {
+	margin-bottom: 0px;
+}
+
+#intro-list {
+	line-height: 3rem;
+}
+
 /*Konami Code */
 div#konami {
     top: 70px;

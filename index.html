@@ -72,7 +72,10 @@
         
         <!-- Section Image -->
         <div class="section-image col-md-6 bg-white">
-            <div class="bg-image-container"><img src="assets/img/volcano.jpg" alt=""></div>
+            <div class="bg-image-container" id="fader">
+                <img id="headerimage" src="assets/img/volcano.jpg" alt="">
+                <img id="headerimage" src="assets/img/izzybig.jpg" alt="">
+            </div>
         </div>
 
         <!-- Section Content -->
@@ -108,33 +111,45 @@
         
         <!-- Section Content -->
         <div class="section-content">
-            <div class="container-slim">
-
+            <div class="container-slim" id="profilepic-container">
+                <img id="profilepic" class="img-responsive rounded-circle text-center" src="assets/img/profilepic.jpg">
                 <h3 class="mb-0 text-center">About me</h3>
                 <hr class="sep-line text-center">
                 <!-- Resume - About -->
                 <div class="resume-box">
-                    <p class="lead text-md">I am 8 years experienced <strong>web designer</strong> from Toronto.</p>
+                    <p class="lead text-md">Adventurer at heart 🌎. Possibly the most positive person on Earth. Currently the Community Manager at a coding bootcamp in Toronto called<a href="http://lighthouselabs.ca" target="_blank"> Lighthouse Labs</a></p>
+                    <p class="lead text-md">I used to organize international coworking retreats around the world with <a href="http://hackerparadise.org" target="_blank">Hacker Paradise.</a></p>
+                    <p class="lead text-md" id="intro-paragraph">A few quirky things about me:
+                    </p>
+                    <ul id="intro-list">
+                        <li class="lead text-md">I opened the NASDAQ stock market <a href="https://twitter.com/izzydoesizzy/status/786603927592656896" target="_blank">in a giant pikachu costume</a></li>
+                        <li class="lead text-md">I was once quoted <a href="https://twitter.com/izzydoesizzy/status/769894676895768576" target="_blank">in a dutch magazine</a> without knowing about it</li>
+                        <li class="lead text-md">I was <a href="https://www.inc.com/marli-guzzetta/quit-your-day-job-and-go-solo.html" target="_blank">mentioned in Inc.com</a> for my satire on digital nomads</li>
+                        <li class="lead text-md">None of these things surprise any of my friends at all</p>
+                    </ul>
+
+                    
                 </div>
                 
 
-
+                <hr class="hr-lg pt-5">
                 
-
-                <p>
-                    <ul class="nav nav-pills nav-fill text-center" role="tablist">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#experience" aria-controls="experience" role="tab" data-toggle="tab">Work Experience</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" href="#hustles" aria-controls="hustles" role="tab" data-toggle="tab">Side Projects</a>
-                        </li>
-                        
-                    </ul>
-                </p>
+                <div>
+                    <p>
+                        <ul class="nav nav-pills nav-fill text-center" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#experience" aria-controls="experience" role="tab" data-toggle="tab">Work Experience</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#hustles" aria-controls="hustles" role="tab" data-toggle="tab">Side Projects</a>
+                            </li>
+                            
+                        </ul>
+                    </p>
+                </div>
 
                 <div class="tab-content">
-                    <div role="tabpanel" class="tab-pane fade show" id="experience">
+                    <div role="tabpanel" class="tab-pane fade show active" id="experience">
                         <!-- Resume - Education & Jobs -->
                         <div class="resume-box image-edge text-center">
                             <h5 class="mb-5">Work &amp; Experience</h5>
@@ -180,10 +195,10 @@
                             </div>
                         </div>
                     </div>
-                    <div role="tabpanel" class="tab-pane fade show active" id="hustles">
+                    <div role="tabpanel" class="tab-pane fade show" id="hustles">
                         <!-- Resume - Education & Jobs -->
                         <div class="resume-box image-edge text-center">
-                            <h5 class="mb-5">Side Hustles</h5>
+                            <h5 class="mb-5">Side Projects</h5>
                             <div class="row">
                                 <div class="col-md-10 push-md-1">
                                     <!-- Timeline -->
@@ -210,16 +225,6 @@
                                             </div>
                                         </div>
                                         <!-- Timeline Event -->
-                                        
-                                        <div class="timeline-event">
-                                            <div class="timeline-event-point"></div>
-                                            <div class="timeline-event-date">2016-Present</div>
-                                            <div class="timeline-event-content">
-                                                <h5 class="timeline-event-title">Founder - <span class="text-primary">ClearCareer</span></h5>
-                                                <span class="timeline-event-caption text-muted">A peer-mentorship community for new grads, weekly jobs newsletter, job hacking tips and career coaching. Over 900 members.<br><a href="https://www.facebook.com/groups/clearcareer/" target="_blank">Join the community!</a></span>
-                                            </div>
-                                        </div>
-                                        <!-- Timeline Event -->
                                         <div class="timeline-event">
                                             <div class="timeline-event-point"></div>
                                             <div class="timeline-event-date">2017</div>
@@ -229,6 +234,16 @@
                                                 <a href="https://collectorbitcoin.com/" target="_blank">Check it out</a></span>
                                             </div>
                                         </div>
+                                        <!-- Timeline Event -->
+                                        <div class="timeline-event">
+                                            <div class="timeline-event-point"></div>
+                                            <div class="timeline-event-date">2016-Present</div>
+                                            <div class="timeline-event-content">
+                                                <h5 class="timeline-event-title">Founder - <span class="text-primary">ClearCareer</span></h5>
+                                                <span class="timeline-event-caption text-muted">A peer-mentorship community for new grads, weekly jobs newsletter, job hacking tips and career coaching. Over 900 members.<br><a href="https://www.facebook.com/groups/clearcareer/" target="_blank">Join the community!</a></span>
+                                            </div>
+                                        </div>
+                                        
                                         <!-- Timeline Event -->
                                         <div class="timeline-event">
                                             <div class="timeline-event-point"></div>
@@ -279,6 +294,8 @@
 
     </section>
 
+    <hr class="hr-lg pt-5">
+
     <!-- Resume - Clients -->
         <div class="resume-box image-edge text-center">
             <!-- Image -->
@@ -292,7 +309,7 @@
                         <li><a href="https://notablelife.com/job-hacking-lighhouse-labs/" target="_blank"><img src="assets/img/logos/notablelife.png" alt="" class="logos"></a></li>
                         <li><a href="https://soundcloud.com/aaron-parker-16/episode-17-izzy-on-job-hacking" target="_blank"><img src="assets/img/logos/theluckyfew.png" alt="" class="logos"></a></li>
                         <li><a href="https://medium.freecodecamp.org/how-to-be-a-developer-and-travel-the-world-376818109bff" target="_blank"><img src="assets/img/logos/freecodecamp.png" alt="" class="logos"></a></li>
-                        <li><a href="https://www.inc.com/marli-guzzetta/quit-your-day-job-and-go-solo.html" target="_blank"><img src="assets/img/logos/inc.png" alt="" class="logos"></a></li>
+                        <li><a href="https://www.inc.com/marli-guzzetta/quit-your-day-job-and-go-solo.html" target="_blank"><img src="assets/img/logos/inc.png" alt="" class="logos" width="70%"></a></li>
                         <li><a href="https://www.dnxpodcast.de/podcast/izzy-piyale-sheard-coliving-hacker-paradise-2/" target="_blank"><img src="assets/img/logos/dnx.png" alt="" class="logos"></a></li>
                         <li><a href="https://kamaratoffolo.com/2016/10/kill-resume-get-interview/" target="_blank"><img src="assets/img/logos/kamara.png" alt="" class="logos"></a></li>
                     </ul>
@@ -303,62 +320,106 @@
 
     
 
-    <!-- Section - Services -->
-    <section id="services" class="section section-slider fullheight" data-scheme="light">
-
+    
+    <!-- Section - Blog -->
+    <section id="blog" class="section bg-dark dark" data-scheme="dark">
+    
         <!-- Section Content -->
         <div class="section-content">
-            <div class="container-wide">
-                <h3 class="mb-5">My Services</h3>
-                <hr class="sep-line ml-0">
-            </div>
-            <!-- Slides -->
-            <div class="container-wide">
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="section-slides nav outer-controls" data-local-scroll>
-                            <!-- Slide -->
-                            <div class="slide light">
-                                <h2 class="display-3">Web Design</h2>
-                                <p class="lead text-muted">In massa nulla, blandit vel felis at, tincidunt scelerisque enim. Mauris ut orci diam.</p>
-                                <a href="#contact" class="btn btn-primary">Contact me</a>
+            <div class="container">
+                <h1 class="mb-5">Some of my work</h1>
+                <div class="row masonry">  
+                    <div class="masonry-sizer col-xl-4 col-sm-6 col-12"></div>
+                    <div class="masonry-item col-xl-4 col-sm-6 col-12">
+                        <!-- Post - Item -->
+                        <article class="post item">
+                            <div class="post-image">
+                                <a href="https://medium.freecodecamp.org/how-to-be-a-developer-and-travel-the-world-376818109bff" target="_blank"><img src="assets/img/blog/travel.jpg" target="_blank" alt="Travel Map"></a>
                             </div>
-                            <!-- Slide -->
-                            <div class="slide dark">
-                                <h2 class="display-3">Print Design</h2>
-                                <p class="lead text-muted">Blandit vel felis at, tincidunt scelerisque enim. Mauris ut orci diam.</p>
-                                <a href="#contact" class="btn btn-primary">Contact me</a>
+                            <div class="post-content">
+                                <h4 class="post-title"><a href="https://medium.freecodecamp.org/how-to-be-a-developer-and-travel-the-world-376818109bff" target="_blank">How to travel the world as a developer</a></h4>
+                                <ul class="post-meta">
+                                    <li><a href="#">Blog</a></li>
+                                    <li><a href="#">26K Views</a></li>
+                                    
+                                </ul>
+                                <p>We’ve all seen it. That Facebook photo of a friend posing on a paradisiacal beach — with a laptop and a coconut drink...</p>
                             </div>
-                        </div>
+                        </article>
                     </div>
+                    <div class="masonry-item col-xl-4 col-sm-6 col-12">
+                        <!-- Post - Item -->
+                        <article class="post item">
+                            <div class="post-image">
+                                <a href="https://www.linkedin.com/pulse/how-kill-resume-get-interview-iskender-piyale-sheard/" target="_blank"><img src="assets/img/blog/interview.jpg" alt=""></a>
+                            </div>
+                            <div class="post-content">
+                                <h4 class="post-title"><a href="blog-post-panel.html">How to kill the resume and get the interview</a></h4>
+                                <ul class="post-meta">
+                                    <li><a href="#">Blog</a></li>
+                                    <li><a href="#">2.2K Views</a></li>
+                                </ul>
+                                <p>Proin pulvinar massa neque, vel sodales augue aliquet placerat. Sed consequat commodo magna ac luctus.</p>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="masonry-item col-xl-4 col-sm-6 col-12">
+                        <!-- Post - Item -->
+                        <article class="post item">
+                            <div class="post-image">
+                                <a href="https://www.linkedin.com/pulse/how-kill-resume-get-interview-iskender-piyale-sheard/" target="_blank"><img src="assets/img/blog/crypto.jpg" alt=""></a>
+                            </div>
+                            <div class="post-content">
+                                <h4 class="post-title"><a href="blog-post-panel.html">Izzy's Ultimate Guide to Digital Currencies</a></h4>
+                                <ul class="post-meta">
+                                    <li><a href="#">Slide Deck</a></li>
+                                    <li><a href="#">800 Views</a></li>
+                                </ul>
+                                <p>This slide deck is a general overview of how digital currencies work, including Bitcoin, Ethereum, and others.</p>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="masonry-item col-xl-4 col-sm-6 col-12">
+                        <!-- Post - Item -->
+                        <article class="post item">
+                            <div class="post-image">
+                                <a href="https://www.linkedin.com/pulse/how-kill-resume-get-interview-iskender-piyale-sheard/" target="_blank"><img src="assets/img/blog/luckyfew.jpg" alt=""></a>
+                            </div>
+                            <div class="post-content">
+                                <h4 class="post-title"><a href="blog-post-panel.html">TheLuckyFew Podcast Ep.17: Job Hacking</a></h4>
+                                <ul class="post-meta">
+                                    <li><a href="#">Podcast</a></li>
+                                    <li><a href="#">400+ Listens</a></li>
+                                </ul>
+                                <p>Find your calling, connect to the right people, and get the interview quickly and painlessly. Leapfrog the resume black hole.</p>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="masonry-item col-xl-4 col-sm-6 col-12">
+                        <!-- Post - Item -->
+                        <article class="post item">
+                            <div class="post-image">
+                                <a href="https://izzydoesizzy.github.io/bitcointulips-website/" target="_blank"><img src="assets/img/blog/bitcointulips.jpg" alt=""></a>
+                            </div>
+                            <div class="post-content">
+                                <h4 class="post-title"><a href="blog-post-panel.html">Bitcoin To Tulips Google Chrome Extension</a></h4>
+                                <ul class="post-meta">
+                                    <li><a href="#">Project</a></li>
+                                    <li><a href="#">3 Downloads</a></li>
+                                </ul>
+                                <p>A Google Chrome extension that replaces all references to Bitcoin on Twitter with tulip 🌷 emojis.</p>
+                            </div>
+                        </article>
+                    </div>
+                    
+                </div>
+                <div class="text-center mt-3">
+                    <a href="https://medium.com/@izzydoesizzy" class="btn btn-outline-primary" target="_blank">Check out my blog</a>
                 </div>
             </div>
         </div>
-
-
-
-        <!-- Section Backgrounds -->
-        <div class="section-bgs">
-            <div class="slide bg-white">
-                <div class="image col-md-6 push-md-6">
-                    <div class="bg-image-container">
-                        <img src="assets/img/photos/designer/service01.jpg" alt="">
-                    </div>
-                </div>
-            </div>
-            <div class="slide bg-dark">
-                <div class="image col-md-6 push-md-6">
-                    <div class="bg-image-container">
-                        <img src="assets/img/photos/designer/service02.jpg" alt="">
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
 
     </section>
-
     <!-- Section - Portfolio -->
     <section id="portfolio" class="section bg-primary-animated dark cover" data-scheme="dark">
     
@@ -443,89 +504,7 @@
 
     </section>
 
-    <!-- Section - Blog -->
-    <section id="blog" class="section bg-dark dark" data-scheme="dark">
     
-        <!-- Section Content -->
-        <div class="section-content">
-            <div class="container">
-                <h1 class="mb-5">Some of my work</h1>
-                <div class="row masonry">  
-                    <div class="masonry-sizer col-xl-4 col-sm-6 col-12"></div>
-                    <div class="masonry-item col-xl-4 col-sm-6 col-12">
-                        <!-- Post - Item -->
-                        <article class="post item">
-                            <div class="post-image">
-                                <a href="https://medium.freecodecamp.org/how-to-be-a-developer-and-travel-the-world-376818109bff" target="_blank"><img src="assets/img/blog/travel.jpg" target="_blank" alt="Travel Map"></a>
-                            </div>
-                            <div class="post-content">
-                                <h4 class="post-title"><a href="https://medium.freecodecamp.org/how-to-be-a-developer-and-travel-the-world-376818109bff" target="_blank">How to travel the world as a developer</a></h4>
-                                <ul class="post-meta">
-                                    <li><a href="#">Blog</a></li>
-                                    <li><a href="#">26K Views</a></li>
-                                    
-                                </ul>
-                                <p>We’ve all seen it. That Facebook photo of a friend posing on a paradisiacal beach — with a laptop and a coconut drink...</p>
-                            </div>
-                        </article>
-                    </div>
-                    <div class="masonry-item col-xl-4 col-sm-6 col-12">
-                        <!-- Post - Item -->
-                        <article class="post item">
-                            <div class="post-image">
-                                <a href="https://www.linkedin.com/pulse/how-kill-resume-get-interview-iskender-piyale-sheard/" target="_blank"><img src="assets/img/blog/interview.jpg" alt=""></a>
-                            </div>
-                            <div class="post-content">
-                                <h4 class="post-title"><a href="blog-post-panel.html">How to kill the resume and get the interview</a></h4>
-                                <ul class="post-meta">
-                                    <li><a href="#">Blog</a></li>
-                                    <li><a href="#">2.2K Views</a></li>
-                                </ul>
-                                <p>Proin pulvinar massa neque, vel sodales augue aliquet placerat. Sed consequat commodo magna ac luctus.</p>
-                            </div>
-                        </article>
-                    </div>
-                    <div class="masonry-item col-xl-4 col-sm-6 col-12">
-                        <!-- Post - Item -->
-                        <article class="post item">
-                            <div class="post-image">
-                                <a href="https://www.linkedin.com/pulse/how-kill-resume-get-interview-iskender-piyale-sheard/" target="_blank"><img src="assets/img/blog/crypto.jpg" alt=""></a>
-                            </div>
-                            <div class="post-content">
-                                <h4 class="post-title"><a href="blog-post-panel.html">Izzy's Ultimate Guide to Digital Currencies</a></h4>
-                                <ul class="post-meta">
-                                    <li><a href="#">Slide Deck</a></li>
-                                    <li><a href="#">800 Views</a></li>
-                                </ul>
-                                <p>This slide deck is a general overview of how digital currencies work, including Bitcoin, Ethereum, and others.</p>
-                            </div>
-                        </article>
-                    </div>
-                    <div class="masonry-item col-xl-4 col-sm-6 col-12">
-                        <!-- Post - Item -->
-                        <article class="post item">
-                            <div class="post-image">
-                                <a href="https://www.linkedin.com/pulse/how-kill-resume-get-interview-iskender-piyale-sheard/" target="_blank"><img src="assets/img/blog/luckyfew.jpg" alt=""></a>
-                            </div>
-                            <div class="post-content">
-                                <h4 class="post-title"><a href="blog-post-panel.html">TheLuckyFew Podcast Ep.17: Job Hacking</a></h4>
-                                <ul class="post-meta">
-                                    <li><a href="#">Podcast</a></li>
-                                    <li><a href="#">400+ Listens</a></li>
-                                </ul>
-                                <p>Find your calling, connect to the right people, and get the interview quickly and painlessly. Leapfrog the resume black hole.</p>
-                            </div>
-                        </article>
-                    </div>
-                    
-                </div>
-                <div class="text-center mt-3">
-                    <a href="https://medium.com/@izzydoesizzy" class="btn btn-outline-primary" target="_blank">Check out my blog</a>
-                </div>
-            </div>
-        </div>
-
-    </section>
     <!-- Section - Testimonials -->
     <section id="testimonials" class="section bg-primary dark" data-scheme="dark">
     
@@ -678,11 +657,11 @@
     <div class="footer-content">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-md-6 mb-5 mb-md-0 text-center text-md-left">
+                <!-- <div class="col-md-6 mb-5 mb-md-0 text-center text-md-left">
                     <p class="mb-2"><span class="typing">Would you like to get my CV in PDF?</span></p>
                     <a href="#" class="btn btn-primary btn-sm">Download my CV</a>
-                </div>
-                <div class="spread-icons col-md-6 text-center text-md-right">
+                </div> -->
+                <div class="spread-icons col-md-6 offset-md-3 text-center">
                     <a href="http://www.twitter.com/izzydoesizzy" class="icon icon-circle icon-hover icon-sm" target="_blank"><i class="fa fa-2x fa-twitter"></i></a> 
                     <a href="https://ca.linkedin.com/in/ipiyale" class="icon icon-circle icon-hover icon-sm" target="_blank"><i class="fa fa-2x fa-linkedin"></i></a>      
                     <a href="https://medium.com/@izzydoesizzy" class="icon icon-circle icon-hover icon-sm" target="_blank"><i class="fa fa-2x fa-medium"></i></a>  
@@ -701,47 +680,7 @@
 </footer>
 <!-- Footer / End -->
 
-<!-- Window - Message -->
-<div id="message-window" class="window window-primary">
-    <svg class="window-background" viewBox="0 0 1920 1080" preserveAspectRatio="none"></svg>
-    <div class="window-inner">
-        <section class="section dark">
-            <div class="section-content">
-                <div class="container">
-                    <!-- Section Header -->
-                    <div class="section-header">
-                        <img src="assets/img/photos/designer/avatar-sm.jpg" alt="" class="section-header-image">
-                        <div class="section-header-content">
-                            <span class="typing">I am waiting for a message from you :)</span>
-                        </div>
-                    </div>
-                    <!-- Section Content -->
-                    <form class="contact-form form-text"
-                    data-message-error="Opps... Something went wrong - please try again later"
-                    data-message-success="Thanks! You will recieve a responsve in 24h!" data-validate>
-                        <div class="form-group">Hello! My name is <input name="name" type="text" class="form-control-text" required> and here is my message:</div>
-                        <div class="form-group"><textarea name="message" cols="30" rows="4" class="form-control-text" required></textarea></div>
-                        <div class="form-group">I will left you my e-mail - please reply: <input name="email" type="email" class="form-control-text" required></div>
-                        <button class="btn btn-white btn-lg">Send message!</button>
-                    </form>
-                </div>
-            </div>
-        </section>
-    </div>
-</div>
 
-<!-- Window Toggle - Message -->
-<button class="window-toggle" data-target="#message-window"><i class="fa fa-comments"></i><i class="fa fa-times"></i></button>
-
-<!-- Modal / Video -->
-<div class="modal modal-video fade" id="modalVideo" role="dialog">
-    <button class="close" data-dismiss="modal"></button>
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-            <iframe height="500"></iframe>
-        </div>
-    </div>
-</div>
 
 
 <!-- Modal / Konami -->
