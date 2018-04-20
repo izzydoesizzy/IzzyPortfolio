@@ -37,16 +37,19 @@ document.addEventListener('keydown', function(e) {
   }
 });
 
-function toggleAudio() {
-  var audio = new Audio('nintendoworldcup-vsmatch.mp3');
-  return audio.paused ? audio.play() : audio.pause();
+var audio = new Audio('nintendoworldcup-vsmatch.mp3');
+
+function playAudio() {
+  audio.play();
 }
+
+
 
 function activateCheats() {
   document.body.style.backgroundImage = "url('images/cheatBackground.png')";
-
-  toggleAudio()
   // alert("cheats activated");
+  
   $("#konami").modal()
+  playAudio()
 }
 
