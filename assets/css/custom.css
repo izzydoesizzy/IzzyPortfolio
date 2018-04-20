@@ -1,6 +1,10 @@
 /*#namehover {display:visible}
 #namehover:hover:before {content:"(Iskender)"}*/
 
+html {
+	overflow-x: hidden;
+}
+
 .logos:hover {
 	opacity: 0.7;
 }
