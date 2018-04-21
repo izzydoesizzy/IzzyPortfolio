@@ -96,3 +96,6 @@ div#konami {
 	left: 100px;
 }
 
+.hidden-text {
+	display:none;
+}

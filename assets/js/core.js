@@ -972,6 +972,7 @@ Author:         Suelo
         Core.init();
     });
 
+    
     $(window).on('load', function (){
         $pageLoader.fadeOut(300, function(){
             $body.addClass('loaded');
