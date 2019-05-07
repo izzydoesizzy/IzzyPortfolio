@@ -99,3 +99,9 @@ div#konami {
 .hidden-text {
 	display:none;
 }
+
+
+section#workexperience {
+    padding-top: 0;
+    padding-bottom: 0;
+}
